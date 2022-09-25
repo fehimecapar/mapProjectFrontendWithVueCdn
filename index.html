@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bul map</title>
+
+    <!-- libraries -->
+    <script src="/src/vue@2/dist/vue.js"></script>
+    <script src="/src/axios/dist/axios.min.js"></script>
+    <script src="/src/leaflet@1.3.0/dist/leaflet.js"></script>
+
+    <link rel="stylesheet" href="/src/leaflet@1.7.1/dist/leaflet.css" />
+
+    <link rel="stylesheet" href="/src/leaflet-geosearch@3.0.0/dist/geosearch.css" />
+    <script src="/src/leaflet-geosearch@3.0.0/dist/geosearch.umd.js"></script>
+    <script src="/src/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="/src/vue/2.5.17/vue.js"></script>
+
+    <script src="/src/jquery-3.6.0.js"></script>
+    <script src="https://kit.fontawesome.com/your-code-number.js"></script>
+
+    <!-- style -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            width: 100vw;
+            height: 100vh;
+
+        }
+
+        .leaflet-top {
+            top: 10%;
+
+        }
+
+        .search {
+            width: 100%;
+            text-align: center;
+            padding-top: 1%;
+            background-color: #1788CA;
+            opacity: 0.5;
+            height: 50px;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+        }
+
+        .search:hover {
+            opacity: 1.0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- data verilerini ekranda göstermek için çift süslü parantez kullanılır-->
+        <div id="map">
+            <div class="control-share leaflet-control" style="width:100%;">
+                <a class="control-button" href="#" title="" data-original-title="Paylaş">
+                    <div class="search">
+                        <div class="input-group input-group-sm" margin="50px">
+                            <input type="text" id="adres_data_il" class="form-control ml-2" v-on:keyup="keyData"
+                                v-on:keyup.enter="getData" placeholder="il adı giriniz"
+                                style="outline: none;width: 15%;height: 30px;border-radius: 10px;border: 1px solid darkgrey;padding-left: 0.5%;">
+                            <button class="btn btn-sm btn-primarys" @click="getData" style="cursor: pointer;  
+                            width: 2.5%;
+                            height: 30px;
+                            background-color: #1788CA;
+                            border: none;
+                            margin-left: -0.3%;"><img src="search.png" style=" width: 100%;" /></button>
+                        </div>
+                        <!-- <div style="" >
+                            <list id="listbox" size="1" @change="action($keyData)" style="color: black;">
+                                <option v-for="city_name in result_array" :value="city_name._id">
+                                    {{ city_name.il_adi }}
+                                </option>
+                            </list>
+                        </div> -->
+                    </div>
+            </div>
+        </div>
+    </div>
+    <script src="/src/lib.js"> </script>
+
+</body>
+
+</html>
